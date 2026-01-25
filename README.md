@@ -19,6 +19,14 @@ It's a workspace with different crates.
 - `ppmrust`
     - Provides types and methods for PPM images.
 
+## Dependencies
+
+```mermaid
+graph TD;
+    cmprust-- depends on -->linrust;
+    cmprust-- depends on -->ppmrust;
+```
+
 ## Commands
 
 ### Version
