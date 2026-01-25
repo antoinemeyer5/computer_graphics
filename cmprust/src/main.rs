@@ -1,9 +1,11 @@
-use linrust::{Linvec2, Linvec4};
+use georust::{Line, Point, Triangle};
 use ppmrust::{Image, Rgb};
 
 /****************************************************************** CONSTANTS */
 
 const BLACK: Rgb = Rgb { r: 0, g: 0, b: 0 };
+const GREEN: Rgb = Rgb { r: 0, g: 255, b: 0 };
+const RED: Rgb = Rgb { r: 255, g: 0, b: 0 };
 const WHITE: Rgb = Rgb {
     r: 255,
     g: 255,
@@ -13,30 +15,34 @@ const WHITE: Rgb = Rgb {
 /*************************************************************** MAIN PROGRAM */
 
 fn main() {
-    let mut image = Image::new(100, 100, BLACK);
+    let mut image = Image::new(40, 50, BLACK);
 
     // Draw points
-    let points = [
-        Linvec2 { x: 0.0, y: 0.0 },
-        Linvec2 { x: 2.0, y: 2.0 },
-    ];
+    let points = [Point::new(0.0, 0.0), Point::new(2.0, 2.0)];
     for point in points {
-        image.set_pixel(point.x as usize, point.y as usize, WHITE);
+        image.set_pixel(point.pos.x as usize, point.pos.y as usize, RED);
     }
 
     // Draw line
-    let line = Linvec4 {
-        x: 80.0,
-        y: 80.0,
-        z: 70.0,
-        w: 70.0,
-    };
+    let line = Line::new(12.0, 15.0, 25.0, 45.0);
     image.draw_line(
-        line.x as usize,
-        line.y as usize,
-        line.z as usize,
-        line.w as usize,
+        line.start().x as usize,
+        line.data.y as usize,
+        line.data.z as usize,
+        line.data.w as usize,
         WHITE,
+    );
+
+    // Draw triangle
+    let triangle = Triangle::new(8.0, 8.0, 27.0, 3.0, 26.0, 17.0);
+    image.draw_triangle(
+        triangle.a.x as usize,
+        triangle.a.y as usize,
+        triangle.b.x as usize,
+        triangle.b.y as usize,
+        triangle.c.x as usize,
+        triangle.c.y as usize,
+        GREEN,
     );
 
     let saved = image.save("image.ppm");

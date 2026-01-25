@@ -13,6 +13,9 @@ It's a workspace with different crates.
 
 ### Library crates
 
+- `georust`
+    - Provides types and methods for geometric concepts.
+
 - `linrust`
     - Provides types and methods for computer graphics.
 
@@ -23,8 +26,10 @@ It's a workspace with different crates.
 
 ```mermaid
 graph TD;
-    cmprust-- depends on -->linrust;
+    cmprust-- depends on -->georust;
     cmprust-- depends on -->ppmrust;
+
+    georust-- depends on -->linrust;
 ```
 
 ## Commands
@@ -34,6 +39,7 @@ graph TD;
 ```bash
 % rustc --version
 # rustc 1.92.0 (ded5c06cf 2025-12-08)
+
 % cargo --version
 # cargo 1.92.0 (344c4567c 2025-10-21)
 ```
