@@ -1,8 +1,9 @@
 [workspace]
-members = ["cmprust", "linrust", "ppmrust"]
+members = ["cmprust", "georust", "linrust", "ppmrust"]
 
 resolver = "2"
 
 [workspace.dependencies]
+georust = { path = "georust" }
 linrust = { path = "linrust" }
 ppmrust = { path = "ppmrust" }
