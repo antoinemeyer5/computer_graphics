@@ -1,6 +1,3 @@
-use std::fs::File;
-use std::io::Write;
-
 use crate::Rgb;
 
 /****************************************************************** STRUCTURE */
@@ -22,7 +19,10 @@ impl Image {
         }
     }
 
-    pub fn save(self, filename: &str) {
+    pub fn save(&self, filename: &str) -> std::io::Result<()> {
+        use std::fs::File;
+        use std::io::Write;
+
         let mut file = File::create(filename).unwrap();
 
         writeln!(file, "P3").unwrap();
@@ -32,6 +32,8 @@ impl Image {
         for pixel in &self.data {
             writeln!(file, "{} {} {}", pixel.r, pixel.g, pixel.b).unwrap();
         }
+
+        Ok(())
     }
 
     pub fn set_pixel(&mut self, x: usize, y: usize, color: Rgb) {
