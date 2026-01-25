@@ -31,8 +31,16 @@ impl Linvec3 {
 
 #[test]
 fn test_add() {
-    let a = Linvec3 { x: 1.0, y: 2.0, z: 3.0 };
-    let b = Linvec3 { x: 4.0, y: 5.0, z: 6.0 };
+    let a = Linvec3 {
+        x: 1.0,
+        y: 2.0,
+        z: 3.0,
+    };
+    let b = Linvec3 {
+        x: 4.0,
+        y: 5.0,
+        z: 6.0,
+    };
 
     let result = a.add(b);
 
