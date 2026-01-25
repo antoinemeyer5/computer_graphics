@@ -1,0 +1,3 @@
+# `cmprust`
+
+Main program.

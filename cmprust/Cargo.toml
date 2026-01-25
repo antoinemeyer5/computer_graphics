@@ -1,0 +1,8 @@
+[package]
+name = "cmprust"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+linrust.workspace = true
+ppmrust.workspace = true

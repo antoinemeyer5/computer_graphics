@@ -1,0 +1,8 @@
+[workspace]
+members = ["cmprust", "linrust", "ppmrust"]
+
+resolver = "2"
+
+[workspace.dependencies]
+linrust = { path = "linrust" }
+ppmrust = { path = "ppmrust" }
