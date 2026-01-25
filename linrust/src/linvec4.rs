@@ -19,6 +19,10 @@ impl Linvec4 {
             w: self.w + other.w,
         }
     }
+
+    pub fn new(x: f32, y: f32, z: f32, w: f32) -> Self {
+        Self { x, y, z, w }
+    }
 }
 
 /****************************************************************** UNIT TEST */

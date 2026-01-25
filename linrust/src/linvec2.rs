@@ -16,11 +16,12 @@ impl Linvec2 {
         }
     }
 
-    pub fn sub(self, other: Linvec2) -> Linvec2 {
-        Linvec2 {
-            x: self.x - other.x,
-            y: self.y - other.y,
-        }
+    pub fn dot(self, other: Linvec2) -> f32 {
+        self.x * other.x + self.y * other.y
+    }
+
+    pub fn new(x: f32, y: f32) -> Self {
+        Self { x, y }
     }
 
     pub fn scale(self, scalar: f32) -> Linvec2 {
@@ -30,8 +31,11 @@ impl Linvec2 {
         }
     }
 
-    pub fn dot(self, other: Linvec2) -> f32 {
-        self.x * other.x + self.y * other.y
+    pub fn sub(self, other: Linvec2) -> Linvec2 {
+        Linvec2 {
+            x: self.x - other.x,
+            y: self.y - other.y,
+        }
     }
 }
 
@@ -49,14 +53,13 @@ fn test_add() {
 }
 
 #[test]
-fn test_sub() {
+fn test_dot() {
     let a = Linvec2 { x: 1.0, y: 2.0 };
     let b = Linvec2 { x: 4.0, y: 5.0 };
 
-    let result = a.sub(b);
+    let result = a.dot(b);
 
-    assert!(result.x == -3.0);
-    assert!(result.y == -3.0);
+    assert!(result == 14.0);
 }
 
 #[test]
@@ -71,11 +74,12 @@ fn test_scale() {
 }
 
 #[test]
-fn test_dot() {
+fn test_sub() {
     let a = Linvec2 { x: 1.0, y: 2.0 };
     let b = Linvec2 { x: 4.0, y: 5.0 };
 
-    let result = a.dot(b);
+    let result = a.sub(b);
 
-    assert!(result == 14.0);
+    assert!(result.x == -3.0);
+    assert!(result.y == -3.0);
 }

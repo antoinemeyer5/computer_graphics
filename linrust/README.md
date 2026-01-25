@@ -2,7 +2,7 @@
 
 Reference: https://github.com/datenwolf/linmath.h
 
-Provides types and methods for computer graphics.
+Provides types and methods for computer graphics (math and vectors).
 
 - `Linvec2`: 2 element vector of floats (`f32`).
     - Methods to `add`, `sub` and more.
