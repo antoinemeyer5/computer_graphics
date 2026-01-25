@@ -12,41 +12,37 @@ pub struct Image {
 
 impl Image {
     pub fn draw_line(&mut self, x0: usize, y0: usize, x1: usize, y1: usize, color: Rgb) {
-        let dx = if x1 > x0 { x1 - x0 } else { x0 - x1 };
-        let dy = if y1 > y0 { y1 - y0 } else { y0 - y1 };
+        let mut x0 = x0 as i32;
+        let mut y0 = y0 as i32;
+        let x1 = x1 as i32;
+        let y1 = y1 as i32;
 
-        let sx = if x0 < x1 { 1 } else { usize::MAX }; // -1 when usize safe
-        let sy = if y0 < y1 { 1 } else { usize::MAX }; // -1 when usize safe
+        let sx = if x0 < x1 { 1 } else { -1 };
+        let sy = if y0 < y1 { 1 } else { -1 };
 
-        let mut err = if dx > dy { dx } else { dy } / 2;
-        let mut x = x0;
-        let mut y = y0;
+        let dx = (x1 - x0).abs();
+        let dy = -(y1 - y0).abs();
+        let mut err = dx + dy;
 
         loop {
-            self.set_pixel(x, y, color.clone());
+            if x0 >= 0 && y0 >= 0 {
+                self.set_pixel(x0 as usize, y0 as usize, color.clone());
+            }
 
-            if x == x1 && y == y1 {
+            if x0 == x1 && y0 == y1 {
                 break;
             }
 
-            let e2 = err;
+            let e2 = 2 * err;
 
-            if e2 > dy {
-                err -= dy;
-                if sx == 1 {
-                    x += 1;
-                } else {
-                    x -= 1;
-                }
+            if e2 >= dy {
+                err += dy;
+                x0 += sx;
             }
 
             if e2 <= dx {
                 err += dx;
-                if sy == 1 {
-                    y += 1;
-                } else {
-                    y -= 1;
-                }
+                y0 += sy;
             }
         }
     }
