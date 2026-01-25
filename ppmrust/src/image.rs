@@ -5,7 +5,7 @@ use crate::Rgb;
 pub struct Image {
     pub width: usize,
     pub height: usize,
-    pub data: Vec<Rgb>,
+    pub pixels: Vec<Rgb>,
 }
 
 /************************************************************* IMPLEMENTATION */
@@ -15,7 +15,7 @@ impl Image {
         Self {
             width,
             height,
-            data: vec![clear; width * height],
+            pixels: vec![clear; width * height],
         }
     }
 
@@ -29,7 +29,7 @@ impl Image {
         writeln!(file, "{} {}", self.width, self.height).unwrap();
         writeln!(file, "255").unwrap();
 
-        for pixel in &self.data {
+        for pixel in &self.pixels {
             writeln!(file, "{} {} {}", pixel.r, pixel.g, pixel.b).unwrap();
         }
 
@@ -38,7 +38,7 @@ impl Image {
 
     pub fn set_pixel(&mut self, x: usize, y: usize, color: Rgb) {
         if x < self.width && y < self.height {
-            self.data[y * self.width + x] = color;
+            self.pixels[y * self.width + x] = color;
         }
     }
 }
