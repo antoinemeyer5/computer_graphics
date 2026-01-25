@@ -26,7 +26,7 @@ impl Image {
 
         loop {
             if x0 >= 0 && y0 >= 0 {
-                self.set_pixel(x0 as usize, y0 as usize, color.clone());
+                self.set_pixel(x0 as usize, y0 as usize, color);
             }
 
             if x0 == x1 && y0 == y1 {
@@ -45,6 +45,21 @@ impl Image {
                 y0 += sy;
             }
         }
+    }
+
+    pub fn draw_triangle(
+        &mut self,
+        ax: usize,
+        ay: usize,
+        bx: usize,
+        by: usize,
+        cx: usize,
+        cy: usize,
+        color: Rgb,
+    ) {
+        self.draw_line(ax, ay, bx, by, color);
+        self.draw_line(bx, by, cx, cy, color);
+        self.draw_line(cx, cy, ax, ay, color);
     }
 
     pub fn new(width: usize, height: usize, clear: Rgb) -> Self {
