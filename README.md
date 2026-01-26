@@ -22,14 +22,25 @@ It's a workspace with different crates.
 - `ppmrust`
     - Provides types and methods for PPM images.
 
+- `renrust`
+    - Provides methods for rendering (use this!).
+
 ## Dependencies
 
 ```mermaid
 graph TD;
-    cmprust-- depends on -->georust;
-    cmprust-- depends on -->ppmrust;
+    linrust --> georust;
 
-    georust-- depends on -->linrust;
+    georust --> renrust;
+    ppmrust --> renrust;
+
+    georust --> cmprust;
+    renrust --> cmprust;
+    ppmrust --> cmprust;
+
+    linkStyle 3 stroke:green;
+    linkStyle 4 stroke:green,stroke-width:6px;
+    linkStyle 5 stroke:green;
 ```
 
 ## Commands

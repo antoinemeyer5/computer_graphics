@@ -1,9 +1,12 @@
 [package]
-name = "cmprust"
+name = "renrust"
 version = "0.1.0"
 edition = "2021"
+
+[lib]
+name = "renrust"
+path = "src/lib.rs"
 
 [dependencies]
 georust.workspace = true
 ppmrust.workspace = true
-renrust.workspace = true
