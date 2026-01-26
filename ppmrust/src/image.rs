@@ -2,6 +2,7 @@ use crate::Rgb;
 
 /****************************************************************** STRUCTURE */
 
+#[derive(Clone)]
 pub struct Image {
     pub width: usize,
     pub height: usize,
