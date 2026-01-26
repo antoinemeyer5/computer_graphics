@@ -1,26 +1,21 @@
 use georust::{Line, Point, Triangle};
-use ppmrust::{Image, Rgb};
-
-/****************************************************************** CONSTANTS */
-
-const BLACK: Rgb = Rgb { r: 0, g: 0, b: 0 };
-const GREEN: Rgb = Rgb { r: 0, g: 255, b: 0 };
-const RED: Rgb = Rgb { r: 255, g: 0, b: 0 };
-const WHITE: Rgb = Rgb {
-    r: 255,
-    g: 255,
-    b: 255,
-};
+use ppmrust::Image;
+use renrust::{colors::*, draw_line, draw_point, draw_triangle};
 
 /*************************************************************** MAIN PROGRAM */
 
 fn main() {
-    let mut image = Image::new(40, 50, BLACK);
+    // Init. image
+    let mut image = Image::new(40, 50, colors::BLACK);
 
     // Draw points
-    let points = [Point::from_vec((0.0, 0.0)), Point::new(2.0, 2.0)];
+    let points = [
+        Point::from_vec((0.0, 0.0)),
+        Point::new(2.0, 2.0),
+        Point::new(39.0, 49.0),
+    ];
     for point in points {
-        image.set_pixel(point.x() as usize, point.y() as usize, RED);
+        draw_point(&mut image, point, colors::RED);
     }
 
     // Draw lines
@@ -29,27 +24,18 @@ fn main() {
         Line::from_points(Point::new(10.0, 0.0), Point::new(20.0, 2.0)),
     ];
     for line in lines {
-        image.draw_line(
-            line.start().x() as usize,
-            line.start().y() as usize,
-            line.end().x() as usize,
-            line.end().y() as usize,
-            WHITE,
-        );
+        draw_line(&mut image, line, colors::WHITE);
     }
 
     // Draw triangle
-    let triangle = Triangle::new(8.0, 8.0, 27.0, 3.0, 26.0, 17.0);
-    image.draw_triangle(
-        triangle.a.x as usize,
-        triangle.a.y as usize,
-        triangle.b.x as usize,
-        triangle.b.y as usize,
-        triangle.c.x as usize,
-        triangle.c.y as usize,
-        GREEN,
+    let triangle = Triangle::from_points(
+        Point::new(8.0, 8.0),
+        Point::new(27.0, 3.0),
+        Point::new(26.0, 17.0),
     );
+    draw_triangle(&mut image, triangle, colors::GREEN);
 
+    // Save image
     let saved = image.save("image.ppm");
     match saved {
         Ok(()) => println!("Well saved!"),
