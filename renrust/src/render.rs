@@ -44,11 +44,7 @@ pub fn draw_point(image: &mut Image, point: Point, color: Rgb) {
 }
 
 pub fn draw_triangle(image: &mut Image, triangle: Triangle, color: Rgb) {
-    let line_ab: Line = triangle.get_edge(0);
-    let line_bc: Line = triangle.get_edge(1);
-    let line_ca: Line = triangle.get_edge(2);
-
-    draw_line(image, line_ab, color);
-    draw_line(image, line_bc, color);
-    draw_line(image, line_ca, color);
+    draw_line(image, triangle.get_edge(0), color); // from A to B
+    draw_line(image, triangle.get_edge(1), color); // from B to C
+    draw_line(image, triangle.get_edge(2), color); // from C to A
 }
