@@ -1,6 +1,6 @@
-use georust::{Line, Point, Rectangle, Triangle};
+use georust::{Line, Point, Square, Triangle};
 use ppmrust::Image;
-use renrust::{colors::*, draw_line, draw_point, draw_rectangle, draw_triangle};
+use renrust::{colors::*, draw_line, draw_point, draw_square, draw_triangle};
 
 /*************************************************************** MAIN PROGRAM */
 
@@ -35,13 +35,14 @@ fn main() {
     );
     draw_triangle(&mut image, triangle, colors::GREEN);
 
-    // Draw rectangles
-    let rectangles = [
-        Rectangle::from_points(Point::new(100.0, 10.0), Point::new(110.0, 20.0)),
-        Rectangle::from_points(Point::new(73.0, 70.0), Point::new(80.0, 85.0)),
+    // Draw squares
+    let squares = [
+        Square::from_points(Point::new(100.0, 10.0), Point::new(110.0, 20.0)),
+        Square::from_points(Point::new(73.0, 70.0), Point::new(140.0, 85.0)),
     ];
-    for rectangle in rectangles {
-        draw_rectangle(&mut image, rectangle, colors::YELLOW);
+    for square in squares {
+        println!("square: {} x {}", square.get_height(), square.get_width());
+        draw_square(&mut image, square, colors::YELLOW);
     }
 
     // Save image

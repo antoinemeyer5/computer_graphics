@@ -4,14 +4,14 @@ use crate::{Line, Point};
 
 /****************************************************************** STRUCTURE */
 
-pub struct Rectangle {
+pub struct Square {
     top_left: Point,
     bottom_right: Point,
 }
 
 /************************************************************* IMPLEMENTATION */
 
-impl Rectangle {
+impl Square {
     pub fn from_points(tl: Point, bt: Point) -> Self {
         Self::new(tl.x(), tl.y(), bt.x(), bt.y())
     }
@@ -46,6 +46,26 @@ impl Rectangle {
             2 => Line::from_points(bottom_right, bottom_left),
             _ => Line::from_points(bottom_left, top_left),
         }
+    }
+
+    pub fn get_width(&self) -> f32 {
+        let tl: Point = self.get_corner(0);
+        let tr: Point = self.get_corner(1);
+
+        let dx = tr.x() - tl.x();
+        let dy = tr.y() - tl.y();
+
+        (dx * dx + dy * dy).sqrt()
+    }
+
+    pub fn get_height(&self) -> f32 {
+        let tl = self.get_corner(0);
+        let bl = self.get_corner(3);
+
+        let dx = bl.x() - tl.x();
+        let dy = bl.y() - tl.y();
+
+        (dx * dx + dy * dy).sqrt()
     }
 
     fn new(x1: f32, y1: f32, x2: f32, y2: f32) -> Self {
