@@ -1,12 +1,12 @@
-use georust::{Line, Point, Triangle};
+use georust::{Line, Point, Rectangle, Triangle};
 use ppmrust::Image;
-use renrust::{colors::*, draw_line, draw_point, draw_triangle};
+use renrust::{colors::*, draw_line, draw_point, draw_rectangle, draw_triangle};
 
 /*************************************************************** MAIN PROGRAM */
 
 fn main() {
     // Init. image
-    let mut image = Image::new(40, 50, colors::BLACK);
+    let mut image = Image::new(200, 150, colors::BLACK);
 
     // Draw points
     let points = [
@@ -34,6 +34,15 @@ fn main() {
         Point::new(26.0, 17.0),
     );
     draw_triangle(&mut image, triangle, colors::GREEN);
+
+    // Draw rectangles
+    let rectangles = [
+        Rectangle::from_points(Point::new(100.0, 10.0), Point::new(110.0, 20.0)),
+        Rectangle::from_points(Point::new(73.0, 70.0), Point::new(80.0, 85.0)),
+    ];
+    for rectangle in rectangles {
+        draw_rectangle(&mut image, rectangle, colors::YELLOW);
+    }
 
     // Save image
     let saved = image.save("image.ppm");
