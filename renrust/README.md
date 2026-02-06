@@ -12,4 +12,4 @@ Provides methods for rendering.
     - `draw_point`
     - `draw_line`
     - `draw_triangle`
-    - `draw_square`
+    - `draw_rectangle`

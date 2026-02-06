@@ -1,4 +1,4 @@
-use georust::{Line, Point, Square, Triangle};
+use georust::{Line, Point, Rectangle, Triangle};
 use ppmrust::{Image, Rgb};
 
 /************************************************************* IMPLEMENTATION */
@@ -49,9 +49,9 @@ pub fn draw_triangle(image: &mut Image, triangle: Triangle, color: Rgb) {
     draw_line(image, triangle.get_edge(2), color); // from C to A
 }
 
-pub fn draw_square(image: &mut Image, square: Square, color: Rgb) {
-    draw_line(image, square.get_edge(0), color); // from TL to TR
-    draw_line(image, square.get_edge(1), color); // from TR to BR
-    draw_line(image, square.get_edge(2), color); // from BR to BL
-    draw_line(image, square.get_edge(3), color); // from BL to TL
+pub fn draw_rectangle(image: &mut Image, rectangle: Rectangle, color: Rgb) {
+    draw_line(image, rectangle.get_edge(0), color); // from TL to TR
+    draw_line(image, rectangle.get_edge(1), color); // from TR to BR
+    draw_line(image, rectangle.get_edge(2), color); // from BR to BL
+    draw_line(image, rectangle.get_edge(3), color); // from BL to TL
 }
