@@ -12,8 +12,5 @@ Provides types and methods for geometric concepts (point, line, triangle).
     - Can get `end` which is a `Point`.
 - `Triangle`
     - Is 3 `Point`.
-
-## 3D world
-
-- `Point3`
-    - Is a `Linvec3` from `linrust`.
+- `Rectangle`
+    - Is 2 `Point` (`top_left` and `bottom_right`).

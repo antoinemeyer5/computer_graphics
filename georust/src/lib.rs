@@ -4,8 +4,8 @@ pub use line::Line;
 pub mod point;
 pub use point::Point;
 
-pub mod point3;
-pub use point3::Point3;
+pub mod rectangle;
+pub use rectangle::Rectangle;
 
 pub mod triangle;
 pub use triangle::Triangle;
