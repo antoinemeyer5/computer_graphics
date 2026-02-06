@@ -2,6 +2,7 @@ use linrust::Linvec2;
 
 /****************************************************************** STRUCTURE */
 
+#[derive(Copy, Clone)]
 pub struct Point {
     pos: Linvec2,
 }

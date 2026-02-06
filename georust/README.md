@@ -12,5 +12,5 @@ Provides types and methods for geometric concepts (point, line, triangle).
     - Can get `end` which is a `Point`.
 - `Triangle`
     - Is 3 `Point`.
-- `Square`
-    - Is 2 `Point` (`top_left` and `bottom_right`).
+- `Rectangle`
+    - Is 1 `Point` (`top_left`), `width`, `height` and `angle`.
