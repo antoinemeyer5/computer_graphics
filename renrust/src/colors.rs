@@ -13,4 +13,9 @@ pub mod colors {
     };
     pub const RED: Rgb = Rgb { r: 255, g: 0, b: 0 };
     pub const GREEN: Rgb = Rgb { r: 0, g: 255, b: 0 };
+    pub const YELLOW: Rgb = Rgb {
+        r: 255,
+        g: 255,
+        b: 0,
+    };
 }

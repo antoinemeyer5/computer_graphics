@@ -7,7 +7,9 @@ Provides methods for rendering.
     - `GREEN`
     - `RED`
     - `WHITE`
+    - `YELLOW`
 - Draw shapes
     - `draw_point`
     - `draw_line`
     - `draw_triangle`
+    - `draw_rectangle`
