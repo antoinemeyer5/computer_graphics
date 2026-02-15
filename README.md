@@ -9,10 +9,10 @@ It's a workspace with different crates.
 ### Binary crates (blue)
 
 - `cmprust`
-    - Main program (draw PPM).
+    - Main program (draw PPM). ![cmprust](/screenshot_cmprust.png)
 
 - `winrust`
-    - Main program (open window).
+    - Main program (open window). ![winrust](/screenshot_winrust.png)
 
 ### Library crates (white)
 
@@ -74,11 +74,3 @@ graph TD;
 % cargo run -p cmprust # Run crate binary
 % cargo test -p [name] # Test crate library
 ```
-
-## Results
-
-- `cmprust`
-![cmprust](/screenshot_cmprust.png)
-
-- `winrust`
-![winrust](/screenshot_winrust.png)
