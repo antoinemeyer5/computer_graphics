@@ -48,6 +48,13 @@ fn main() {
         draw_rectangle(&mut image, rectangle, colors::YELLOW);
     }
 
+    // TODO: Draw circles
+    // TODO: Draw polygons (store a Vec<Point>)
+
+    // TODO: IDEA:
+    // TODO: - Gradient color
+    // TODO: - Fill shapes
+
     // Save image
     let saved = image.save("image.ppm");
     match saved {

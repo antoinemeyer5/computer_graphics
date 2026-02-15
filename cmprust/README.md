@@ -1,3 +1,3 @@
 # `cmprust`
 
-Main program.
+Main program (draw PPM).
