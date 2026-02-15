@@ -14,3 +14,7 @@ Provides types and methods for geometric concepts (point, line, triangle).
     - Is 3 `Point`.
 - `Rectangle`
     - Is 1 `Point` (`top_left`), `width`, `height` and `angle`.
+    - `Square` is when `width == height`.
+- `Oval`
+    - Is 1 `Point` (`center`), `radius_x` and `radius_y`.
+    - `Circle` is when `radius_x == radius_y`.
