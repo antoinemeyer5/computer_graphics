@@ -8,10 +8,10 @@ It's a workspace with different crates.
 
 ### Binary crates (blue)
 
-| `cmprust`                | `winrust`                                      |
-|--------------------------|------------------------------------------------|
-| Main program (draw PPM). | Main program (open window).                    |
-| ![cmprust](/screenshot_cmprust.png) | ![winrust](/screenshot_winrust.png) |
+| `cmprust`                           | `winrust`                           |
+|-------------------------------------|-------------------------------------|
+| Main program (draw PPM).            | Main program (open window).         |
+| ![cmprust](/cmprust/screenshot.png) | ![winrust](/winrust/screenshot.png) |
 
 ### Library crates (white)
 
