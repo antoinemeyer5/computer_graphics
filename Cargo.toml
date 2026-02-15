@@ -1,5 +1,5 @@
 [workspace]
-members = ["cmprust", "georust", "linrust", "ppmrust", "renrust"]
+members = ["cmprust", "georust", "linrust", "ppmrust", "renrust", "winrust"]
 
 resolver = "2"
 
@@ -8,3 +8,4 @@ georust = { path = "georust" }
 linrust = { path = "linrust" }
 ppmrust = { path = "ppmrust" }
 renrust = { path = "renrust" }
+winrust = { path = "winrust" }

@@ -6,12 +6,15 @@ Computer graphics in Rust.
 
 It's a workspace with different crates.
 
-### Binary crate
+### Binary crate (blue)
 
 - `cmprust`
-    - Main program.
+    - Main program (draw PPM).
 
-### Library crates
+- `winrust`
+    - Main program (open window).
+
+### Library crates (white)
 
 - `georust`
     - Provides types and methods for geometric concepts.
@@ -23,7 +26,12 @@ It's a workspace with different crates.
     - Provides types and methods for PPM images.
 
 - `renrust`
-    - Provides methods for rendering (use this!).
+    - Provides methods for rendering.
+
+### External crates (red)
+
+- `winit`
+    - Cross-platform window creation and event loop management library.
 
 ## Dependencies
 
@@ -34,13 +42,15 @@ graph TD;
     georust --> renrust;
     ppmrust --> renrust;
 
-    georust --> cmprust;
-    renrust --> cmprust;
-    ppmrust --> cmprust;
+    georust -.-> cmprust;
+    renrust -.-> cmprust;
+    ppmrust -.-> cmprust;
 
-    linkStyle 3 stroke:green;
-    linkStyle 4 stroke:green,stroke-width:6px;
-    linkStyle 5 stroke:green;
+    winit --> winrust
+
+    style cmprust stroke:blue
+    style winrust stroke:blue
+    style winit stroke:red
 ```
 
 ## Commands
