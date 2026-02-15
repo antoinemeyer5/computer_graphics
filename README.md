@@ -74,3 +74,11 @@ graph TD;
 % cargo run -p cmprust # Run crate binary
 % cargo test -p [name] # Test crate library
 ```
+
+## Results
+
+- `cmprust`
+![cmprust](/screenshot_cmprust.png)
+
+- `winrust`
+![winrust](/screenshot_winrust.png)
