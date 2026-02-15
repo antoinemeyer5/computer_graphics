@@ -6,7 +6,7 @@ Computer graphics in Rust.
 
 It's a workspace with different crates.
 
-### Binary crate (blue)
+### Binary crates (blue)
 
 - `cmprust`
     - Main program (draw PPM).
@@ -28,7 +28,7 @@ It's a workspace with different crates.
 - `renrust`
     - Provides methods for rendering.
 
-### External crates (red)
+### External crate (red)
 
 - `winit`
     - Cross-platform window creation and event loop management library.
