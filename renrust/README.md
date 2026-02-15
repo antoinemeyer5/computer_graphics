@@ -8,8 +8,10 @@ Provides methods for rendering.
     - `RED`
     - `WHITE`
     - `YELLOW`
+    - `PINK`
 - Draw shapes
     - `draw_point`
     - `draw_line`
     - `draw_triangle`
     - `draw_rectangle`
+    - `draw_oval`

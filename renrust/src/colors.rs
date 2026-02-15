@@ -19,4 +19,9 @@ pub mod colors {
         g: 255,
         b: 0,
     };
+    pub const PINK: Rgb = Rgb {
+        r: 255,
+        g: 192,
+        b: 203,
+    };
 }
